@@ -1,0 +1,62 @@
+[
+  {
+    "id": "espresso",
+    "term": "Espresso",
+    "definition": "A concentrated coffee brewed by forcing hot water through finely-ground coffee beans under pressure.",
+    "category": "Basics"
+  },
+  {
+    "id": "cappuccino",
+    "term": "Cappuccino",
+    "definition": "An Italian coffee drink prepared with espresso, steamed milk, and milk foam in equal proportions.",
+    "category": "Classics"
+  },
+  {
+    "id": "latte",
+    "term": "Latte",
+    "definition": "A coffee drink made with espresso and steamed milk, with a light layer of foam on top.",
+    "category": "Classics"
+  },
+  {
+    "id": "macchiato",
+    "term": "Macchiato",
+    "definition": "An espresso with a small amount of foamed milk, literally meaning 'marked' or 'stained'.",
+    "category": "Classics"
+  },
+  {
+    "id": "americano",
+    "term": "Americano",
+    "definition": "Espresso with added hot water, giving it a similar strength to drip coffee but different flavor.",
+    "category": "Classics"
+  },
+  {
+    "id": "crema",
+    "term": "Crema",
+    "definition": "The golden-brown foam that forms on top of a properly brewed espresso, indicating quality.",
+    "category": "Technical"
+  },
+  {
+    "id": "extraction",
+    "term": "Extraction",
+    "definition": "The process of pulling espresso, typically lasting 25-30 seconds for optimal flavor.",
+    "category": "Technical"
+  },
+  {
+    "id": "body",
+    "term": "Body",
+    "definition": "The weight and texture of coffee in your mouth, ranging from light to full-bodied.",
+    "category": "Tasting"
+  },
+  {
+    "id": "acidity",
+    "term": "Acidity",
+    "definition": "The bright, tangy quality in coffee that adds liveliness and complexity to the flavor.",
+    "category": "Tasting"
+  },
+  {
+    "id": "cortado",
+    "term": "Cortado",
+    "definition": "Equal parts espresso and steamed milk, 'cut' to reduce the acidity of the espresso.",
+    "category": "Specialty"
+  }
+]

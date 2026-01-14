@@ -1,6 +1,9 @@
 import 'package:get_it/get_it.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:moodbrew/features/auth/domain/usecases/reset_password.dart';
+import 'package:moodbrew/features/auth/domain/usecases/sign_in_with_email.dart';
+import 'package:moodbrew/features/auth/domain/usecases/sign_up_with_email.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // Data sources
@@ -32,6 +35,9 @@ Future<void> init() async {
   sl.registerLazySingleton(() => SaveMoment(sl()));
   sl.registerLazySingleton(() => GetMoments(sl()));
   sl.registerLazySingleton(() => SignInWithGoogle(sl()));
+  sl.registerLazySingleton(() => SignInWithEmail(sl()));
+  sl.registerLazySingleton(() => SignUpWithEmail(sl()));
+  sl.registerLazySingleton(() => ResetPassword(sl()));
 
   // ========== Repositories ==========
   sl.registerLazySingleton<RecommendationRepository>(
@@ -42,9 +48,9 @@ Future<void> init() async {
     ),
   );
 
-  /*sl.registerLazySingleton<AuthRepository>(
+  sl.registerLazySingleton<AuthRepository>(
     () => AuthRepositoryImpl(dataSource: sl()),
-  );*/
+  );
 
   sl.registerLazySingleton<MomentsRepository>(
     () => MomentsRepositoryImpl(dataSource: sl()),
@@ -57,9 +63,9 @@ Future<void> init() async {
 
   sl.registerLazySingleton(() => ReflectionGenerator());
 
-  /*sl.registerLazySingleton<AuthFirebaseDataSource>(
+  sl.registerLazySingleton<AuthFirebaseDataSource>(
     () => AuthFirebaseDataSourceImpl(auth: sl()),
-  );*/
+  );
 
   sl.registerLazySingleton<MomentsFirebaseDataSource>(
     () => MomentsFirebaseDataSourceImpl(firestore: sl()),

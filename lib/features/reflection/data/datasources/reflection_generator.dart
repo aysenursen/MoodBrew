@@ -44,6 +44,15 @@ class ReflectionGenerator {
     return profile;
   }
 
+  //ben ekledim
+  List<String> generateTasteProfileFromMood(MoodState mood) {
+    return [
+      if (mood.mentalNeed == MentalNeed.slowDown) 'Soft',
+      if (mood.mentalNeed == MentalNeed.focus) 'Clean',
+      if (mood.mentalNeed == MentalNeed.enjoy) 'Bright',
+    ];
+  }
+
   String _getEnergyText(EnergyLevel energy) {
     switch (energy) {
       case EnergyLevel.low:

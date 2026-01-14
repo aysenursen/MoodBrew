@@ -4,7 +4,6 @@ import '../../../../core/error/exceptions.dart';
 import '../../domain/entities/moment.dart';
 import '../../domain/repositories/moments_repository.dart';
 import '../datasources/moments_firebase_data_source.dart';
-import '../models/moment_model.dart';
 
 class MomentsRepositoryImpl implements MomentsRepository {
   final MomentsFirebaseDataSource dataSource;

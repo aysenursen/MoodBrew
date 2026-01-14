@@ -1,10 +1,9 @@
-/*import 'package:dartz/dartz.dart';
+import 'package:dartz/dartz.dart';
 import '../../../../core/error/failures.dart';
 import '../../../../core/error/exceptions.dart';
 import '../../domain/entities/user.dart';
 import '../../domain/repositories/auth_repository.dart';
 import '../datasources/auth_firebase_data_source.dart';
-import '../models/user_model.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthFirebaseDataSource dataSource;
@@ -51,6 +50,33 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
+  Future<Either<Failure, User>> signUpWithEmail(
+    String email,
+    String password,
+  ) async {
+    try {
+      final userModel = await dataSource.signUpWithEmail(email, password);
+      return Right(userModel.toEntity());
+    } on AuthException catch (e) {
+      return Left(AuthFailure(e.message));
+    } catch (e) {
+      return Left(AuthFailure('An unexpected error occurred'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> resetPassword(String email) async {
+    try {
+      await dataSource.resetPassword(email);
+      return const Right(null);
+    } on AuthException catch (e) {
+      return Left(AuthFailure(e.message));
+    } catch (e) {
+      return Left(AuthFailure('An unexpected error occurred'));
+    }
+  }
+
+  @override
   Future<Either<Failure, void>> signOut() async {
     try {
       await dataSource.signOut();
@@ -69,4 +95,3 @@ class AuthRepositoryImpl implements AuthRepository {
     );
   }
 }
-*/

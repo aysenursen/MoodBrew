@@ -1,3 +1,4 @@
+// lib/features/auth/presentation/pages/auth_gate_page.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -103,28 +104,42 @@ class AuthGatePage extends ConsumerWidget {
 
     result.fold(
       (failure) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text(failure.message)));
+        if (context.mounted) {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text(failure.message)));
+        }
       },
       (user) {
-        onAuthSuccess?.call();
-        context.pop();
+        if (context.mounted) {
+          onAuthSuccess?.call();
+          context.pop();
+        }
       },
     );
   }
 
   Future<void> _handleAppleSignIn(BuildContext context, WidgetRef ref) async {
     // TODO: Implement Apple Sign In
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(const SnackBar(content: Text('Apple Sign In coming soon')));
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Apple Sign In coming soon')),
+      );
+    }
   }
 
   Future<void> _handleEmailSignIn(BuildContext context, WidgetRef ref) async {
-    // TODO: Implement Email Sign In
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(const SnackBar(content: Text('Email Sign In coming soon')));
+    // Navigate to email auth page
+
+    await context.push('/email-auth', extra: onAuthSuccess);
+
+    // Check if user is now authenticated after returning
+    final authState = ref.read(authStateProvider);
+    authState.whenData((user) {
+      if (user != null && context.mounted) {
+        onAuthSuccess?.call();
+        context.pop();
+      }
+    });
   }
 }

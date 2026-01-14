@@ -1,4 +1,8 @@
+import 'dart:convert';
+
 import 'package:dartz/dartz.dart';
+import 'package:flutter/services.dart';
+import 'package:moodbrew/core/constants/assets.dart';
 import '../../../../core/error/failures.dart';
 import '../../../../core/error/exceptions.dart';
 import '../../domain/entities/recommendation.dart';
@@ -64,16 +68,20 @@ class RecommendationRepositoryImpl implements RecommendationRepository {
   }
 
   Future<String> _getFunFact(List<String> tags) async {
-    // JSON'dan ilgili fun fact'i getir
-    // Şimdilik basit bir implementasyon
-    final funFacts = [
-      'The word "coffee" comes from the Arabic word "qahwa".',
-      'A coffee tree can live up to 100 years.',
-      'Finland consumes the most coffee per capita in the world.',
-      'Coffee is actually a fruit - it grows on trees as cherries.',
-      'Espresso means "pressed out" in Italian.',
-    ];
+    final jsonString = await rootBundle.loadString(Assets.funFactsJson);
+    final Map<String, dynamic> jsonData = json.decode(jsonString);
 
-    return funFacts[DateTime.now().second % funFacts.length];
+    final List funFacts = jsonData['fun_facts'];
+
+    // Tag filtreleme (şimdilik basit)
+    final filteredFacts = funFacts.where((fact) {
+      final List<dynamic> factTags = fact['tags'];
+      return tags.any((tag) => factTags.contains(tag));
+    }).toList();
+
+    final List source = filteredFacts.isNotEmpty ? filteredFacts : funFacts;
+
+    final index = DateTime.now().millisecondsSinceEpoch % source.length;
+    return source[index]['text'];
   }
 }

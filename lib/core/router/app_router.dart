@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:moodbrew/features/auth/presentation/pages/email_auth_page.dart';
 import '../../features/splash/presentation/pages/splash_page.dart';
 import '../../features/check_in/presentation/pages/check_in_page.dart';
 import '../../features/reflection/presentation/pages/reflection_page.dart';
@@ -41,6 +42,13 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (context, state) {
           final onAuthSuccess = state.extra as VoidCallback?;
           return AuthGatePage(onAuthSuccess: onAuthSuccess);
+        },
+      ),
+      GoRoute(
+        path: '/email-auth',
+        builder: (context, state) {
+          final onAuthSuccess = state.extra as VoidCallback?;
+          return EmailAuthPage(onAuthSuccess: onAuthSuccess);
         },
       ),
       GoRoute(path: '/home', builder: (context, state) => const HomePage()),

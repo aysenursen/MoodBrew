@@ -1,0 +1,102 @@
+[
+  {
+    "id": "espresso",
+    "name": "Espresso",
+    "description": "Bold and intense",
+    "tasteProfile": ["Strong", "Clean", "Bold"],
+    "imagePath": "assets/images/drinks/espresso.png",
+    "whyThisWorks": "Pure and focused, just like you need right now.",
+    "caffeineLevel": 5,
+    "intensityLevel": 5
+  },
+  {
+    "id": "cappuccino",
+    "name": "Cappuccino",
+    "description": "Balanced and smooth",
+    "tasteProfile": ["Creamy", "Smooth", "Balanced"],
+    "imagePath": "assets/images/drinks/cappuccino.png",
+    "whyThisWorks": "Comforting layers that match your mood.",
+    "caffeineLevel": 3,
+    "intensityLevel": 3
+  },
+  {
+    "id": "latte",
+    "name": "Latte",
+    "description": "Gentle and comforting",
+    "tasteProfile": ["Soft", "Warm", "Milky"],
+    "imagePath": "assets/images/drinks/latte.png",
+    "whyThisWorks": "Gentle energy wrapped in comfort.",
+    "caffeineLevel": 2,
+    "intensityLevel": 2
+  },
+  {
+    "id": "americano",
+    "name": "Americano",
+    "description": "Classic and straightforward",
+    "tasteProfile": ["Clean", "Strong", "Familiar"],
+    "imagePath": "assets/images/drinks/americano.png",
+    "whyThisWorks": "No-nonsense energy when you need it.",
+    "caffeineLevel": 4,
+    "intensityLevel": 3
+  },
+  {
+    "id": "macchiato",
+    "name": "Macchiato",
+    "description": "Bold with a gentle touch",
+    "tasteProfile": ["Intense", "Creamy", "Sophisticated"],
+    "imagePath": "assets/images/drinks/macchiato.png",
+    "whyThisWorks": "Perfect balance of strength and smoothness.",
+    "caffeineLevel": 4,
+    "intensityLevel": 4
+  },
+  {
+    "id": "mocha",
+    "name": "Mocha",
+    "description": "Sweet comfort in a cup",
+    "tasteProfile": ["Chocolate", "Sweet", "Indulgent"],
+    "imagePath": "assets/images/drinks/mocha.png",
+    "whyThisWorks": "A little treat for your soul.",
+    "caffeineLevel": 3,
+    "intensityLevel": 2
+  },
+  {
+    "id": "flat_white",
+    "name": "Flat White",
+    "description": "Velvety and refined",
+    "tasteProfile": ["Smooth", "Velvety", "Rich"],
+    "imagePath": "assets/images/drinks/flat_white.png",
+    "whyThisWorks": "Sophisticated comfort when you need it.",
+    "caffeineLevel": 3,
+    "intensityLevel": 3
+  },
+  {
+    "id": "cortado",
+    "name": "Cortado",
+    "description": "Perfectly balanced intensity",
+    "tasteProfile": ["Balanced", "Smooth", "Strong"],
+    "imagePath": "assets/images/drinks/cortado.png",
+    "whyThisWorks": "The sweet spot between bold and gentle.",
+    "caffeineLevel": 4,
+    "intensityLevel": 3
+  },
+  {
+    "id": "affogato",
+    "name": "Affogato",
+    "description": "A delightful surprise",
+    "tasteProfile": ["Sweet", "Creamy", "Adventurous"],
+    "imagePath": "assets/images/drinks/affogato.png",
+    "whyThisWorks": "For when you're ready for something special.",
+    "caffeineLevel": 3,
+    "intensityLevel": 2
+  },
+  {
+    "id": "cold_brew",
+    "name": "Cold Brew",
+    "description": "Smooth and refreshing",
+    "tasteProfile": ["Smooth", "Sweet", "Cool"],
+    "imagePath": "assets/images/drinks/cold_brew.png",
+    "whyThisWorks": "Gentle energy that keeps you going.",
+    "caffeineLevel": 4,
+    "intensityLevel": 2
+  }
+]
